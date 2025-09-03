@@ -1,0 +1,36 @@
+# serializer version: 1
+# name: test_standard_setup[device]
+  DeviceRegistryEntrySnapshot({
+    'area_id': None,
+    'config_entries': <ANY>,
+    'config_entries_subentries': <ANY>,
+    'configuration_url': None,
+    'connections': set({
+      tuple(
+        'bluetooth',
+        'mock-address:front_door',
+      ),
+    }),
+    'disabled_by': None,
+    'entry_type': None,
+    'hw_version': None,
+    'id': <ANY>,
+    'identifiers': set({
+      tuple(
+        'yalexs_ble',
+        'mock-serial:front_door',
+      ),
+    }),
+    'labels': set({
+    }),
+    'manufacturer': 'mock-manufacturer:front_door',
+    'model': 'mock-model:front_door',
+    'model_id': None,
+    'name': 'Front door',
+    'name_by_user': None,
+    'primary_config_entry': <ANY>,
+    'serial_number': None,
+    'sw_version': 'mock-firmware:front_door',
+    'via_device_id': None,
+  })
+# ---

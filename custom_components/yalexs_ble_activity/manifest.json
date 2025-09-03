@@ -1,0 +1,19 @@
+{
+  "domain": "yalexs_ble_activity",
+  "name": "Yale Access Bluetooth Activity",
+  "after_dependencies": ["recorder"],
+  "codeowners": [
+    "@wbyoung"
+  ],
+  "config_flow": true,
+  "dependencies": ["yalexs_ble"],
+  "documentation": "https://github.com/wbyoung/yalexs-ble-activity",
+  "homekit": {},
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/wbyoung/yalexs-ble-activity/issues",
+  "requirements": [],
+  "single_config_entry": true,
+  "ssdp": [],
+  "version": "0.1.1",
+  "zeroconf": []
+}

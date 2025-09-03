@@ -1,0 +1,466 @@
+# serializer version: 1
+# name: test_restore_sensor_save_state[no_values]
+  list([
+    dict({
+      'attributes': None,
+      'value': None,
+    }),
+  ])
+# ---
+# name: test_restore_sensor_save_state[simple]
+  list([
+    dict({
+      'attributes': dict({
+        'source': 'auto_lock',
+      }),
+      'value': 'locked',
+    }),
+  ])
+# ---
+# name: test_sensor_activity_update[door_ajar][sensor.front_door_operation-activity-received-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.front_door_operation',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:lock-clock',
+    'original_name': 'Operation',
+    'platform': 'yalexs_ble_activity',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'operation',
+    'unique_id': 'mock-address:front_dooroperation',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_activity_update[door_ajar][sensor.front_door_operation-activity-received-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Front door Operation',
+      'icon': 'mdi:lock-clock',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.front_door_operation',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
+# name: test_sensor_activity_update[door_ajar][sensor.front_door_operation-post-tick-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.front_door_operation',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:lock-clock',
+    'original_name': 'Operation',
+    'platform': 'yalexs_ble_activity',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'operation',
+    'unique_id': 'mock-address:front_dooroperation',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_activity_update[door_ajar][sensor.front_door_operation-post-tick-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Front door Operation',
+      'icon': 'mdi:lock-clock',
+      'timestamp': datetime.datetime(2025, 5, 20, 10, 51, 32, 3245, tzinfo=datetime.timezone.utc),
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.front_door_operation',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'door_ajar',
+  })
+# ---
+# name: test_sensor_activity_update[pin_unlock_then_auto_lock][sensor.front_door_operation-activity-received-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.front_door_operation',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:lock-clock',
+    'original_name': 'Operation',
+    'platform': 'yalexs_ble_activity',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'operation',
+    'unique_id': 'mock-address:front_dooroperation',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_activity_update[pin_unlock_then_auto_lock][sensor.front_door_operation-activity-received-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Front door Operation',
+      'icon': 'mdi:lock-clock',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.front_door_operation',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
+# name: test_sensor_activity_update[pin_unlock_then_auto_lock][sensor.front_door_operation-post-tick-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.front_door_operation',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:lock-clock',
+    'original_name': 'Operation',
+    'platform': 'yalexs_ble_activity',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'operation',
+    'unique_id': 'mock-address:front_dooroperation',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_activity_update[pin_unlock_then_auto_lock][sensor.front_door_operation-post-tick-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Front door Operation',
+      'icon': 'mdi:lock-clock',
+      'source': 'auto_lock',
+      'timestamp': datetime.datetime(2025, 5, 20, 10, 51, 32, 3245, tzinfo=datetime.timezone.utc),
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.front_door_operation',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'lock_locked',
+  })
+# ---
+# name: test_sensor_activity_update[remote_lock][sensor.front_door_operation-activity-received-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.front_door_operation',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:lock-clock',
+    'original_name': 'Operation',
+    'platform': 'yalexs_ble_activity',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'operation',
+    'unique_id': 'mock-address:front_dooroperation',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_activity_update[remote_lock][sensor.front_door_operation-activity-received-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Front door Operation',
+      'icon': 'mdi:lock-clock',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.front_door_operation',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
+# name: test_sensor_activity_update[remote_lock][sensor.front_door_operation-post-tick-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.front_door_operation',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:lock-clock',
+    'original_name': 'Operation',
+    'platform': 'yalexs_ble_activity',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'operation',
+    'unique_id': 'mock-address:front_dooroperation',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_activity_update[remote_lock][sensor.front_door_operation-post-tick-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Front door Operation',
+      'icon': 'mdi:lock-clock',
+      'remote_type': 'ble',
+      'source': 'remote',
+      'timestamp': datetime.datetime(2025, 5, 20, 10, 51, 32, 3245, tzinfo=datetime.timezone.utc),
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.front_door_operation',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'lock_locked',
+  })
+# ---
+# name: test_sensor_activity_update[unsupported_activity][sensor.front_door_operation-activity-received-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.front_door_operation',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:lock-clock',
+    'original_name': 'Operation',
+    'platform': 'yalexs_ble_activity',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'operation',
+    'unique_id': 'mock-address:front_dooroperation',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_activity_update[unsupported_activity][sensor.front_door_operation-activity-received-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Front door Operation',
+      'icon': 'mdi:lock-clock',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.front_door_operation',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
+# name: test_sensor_activity_update[unsupported_activity][sensor.front_door_operation-post-tick-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.front_door_operation',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:lock-clock',
+    'original_name': 'Operation',
+    'platform': 'yalexs_ble_activity',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'operation',
+    'unique_id': 'mock-address:front_dooroperation',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_activity_update[unsupported_activity][sensor.front_door_operation-post-tick-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Front door Operation',
+      'icon': 'mdi:lock-clock',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.front_door_operation',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
+# name: test_sensors[sensor.front_door_operation-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.front_door_operation',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:lock-clock',
+    'original_name': 'Operation',
+    'platform': 'yalexs_ble_activity',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': 'operation',
+    'unique_id': 'mock-address:front_dooroperation',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensors[sensor.front_door_operation-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Front door Operation',
+      'icon': 'mdi:lock-clock',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.front_door_operation',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
