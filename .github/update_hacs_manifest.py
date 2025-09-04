@@ -12,7 +12,7 @@ def update_manifest():
         if value in {"--version", "-V"}:
             version = sys.argv[index + 1]
 
-    path = Path(f"{Path.cwd()}/custom_components/yalexs_ble_actvity/manifest.json")
+    path = Path(f"{Path.cwd()}/custom_components/yalexs_ble_activity/manifest.json")
 
     with path.open(encoding="utf-8") as manifestfile:
         manifest = json.load(manifestfile)

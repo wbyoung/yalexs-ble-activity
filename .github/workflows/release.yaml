@@ -23,14 +23,14 @@ jobs:
 
       - name: "Create zip"
         run: |
-          cd custom_components/yalexs_ble_actvity
-          zip yalexs_ble_actvity.zip -r ./
+          cd custom_components/yalexs_ble_activity
+          zip yalexs_ble_activity.zip -r ./
 
       - name: "Upload zip to release"
         uses: "svenstaro/upload-release-action@v1-release"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          file: "./custom_components/yalexs_ble_actvity/yalexs_ble_actvity.zip"
-          asset_name: "yalexs_ble_actvity.zip"
+          file: "./custom_components/yalexs_ble_activity/yalexs_ble_activity.zip"
+          asset_name: "yalexs_ble_activity.zip"
           tag: "${{ github.ref }}"
           overwrite: true

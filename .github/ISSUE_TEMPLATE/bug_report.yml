@@ -47,10 +47,10 @@ body:
       placeholder: v
       # yamllint disable rule:line-length
       description: >
-        Can be found in: [Settings ⇒ Integrations ⇒ Yale Access Bluetooth Activity](https://my.home-assistant.io/redirect/integration/?domain=yalexs_ble_actvity).
+        Can be found in: [Settings ⇒ Integrations ⇒ Yale Access Bluetooth Activity](https://my.home-assistant.io/redirect/integration/?domain=yalexs_ble_activity).
 
 
-        [![Open your Home Assistant instance and show the Yale Access Bluetooth Activity integration.](https://my.home-assistant.io/badges/integration.svg)](https://my.home-assistant.io/redirect/integration/?domain=yalexs_ble_actvity)
+        [![Open your Home Assistant instance and show the Yale Access Bluetooth Activity integration.](https://my.home-assistant.io/badges/integration.svg)](https://my.home-assistant.io/redirect/integration/?domain=yalexs_ble_activity)
       # yamllint enable rule:line-length
   - type: input
     attributes:
