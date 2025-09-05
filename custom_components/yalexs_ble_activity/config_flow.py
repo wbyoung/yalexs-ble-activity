@@ -89,11 +89,12 @@ class YaleXSBLEActivityOptionsFlow(OptionsFlow):
                 self.config_entry,
                 data={**self.config_entry.data, **user_input},
             )
-            return self.async_create_entry(title=self.config_entry.title, data={})
+            return self.async_create_entry(data={})
 
         return self.async_show_form(
             step_id="init",
             data_schema=self.add_suggested_values_to_schema(
-                STEP_USER_DATA_SCHEMA, user_input
+                STEP_USER_DATA_SCHEMA,
+                self.config_entry.data if user_input is None else user_input,
             ),
         )
