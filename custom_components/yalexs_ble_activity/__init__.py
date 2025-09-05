@@ -10,7 +10,11 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import Event, HomeAssistant
 from homeassistant.exceptions import ConfigEntryError
-from homeassistant.helpers import config_validation as cv, entity_registry as er
+from homeassistant.helpers import (
+    config_validation as cv,
+    device_registry as dr,
+    entity_registry as er,
+)
 from homeassistant.helpers.event import async_track_entity_registry_updated_event
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.util import package as pkg_util
@@ -56,6 +60,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             },
         )
 
+    entry.async_on_unload(entry.add_update_listener(_async_update_listener))
     entry.async_on_unload(
         async_track_entity_registry_updated_event(
             hass,
@@ -66,6 +71,29 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     return True
+
+
+async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+    """Unload a config entry.
+
+    Returns:
+        If the unload was successful.
+    """
+
+    # remove this config entry from the real core devices as a way of keeping
+    # the state of things clean. this is particularly helpful when changing
+    # the chosen locks on the entry where the UI would still display the old
+    # device connection when a lock was removed.
+    device_registry = dr.async_get(hass)
+    device_entries = dr.async_entries_for_config_entry(
+        device_registry, config_entry_id=entry.entry_id
+    )
+    for device in device_entries:
+        device_registry.async_update_device(
+            device.id, remove_config_entry_id=entry.entry_id
+        )
+
+    return bool(await hass.config_entries.async_unload_platforms(entry, PLATFORMS))
 
 
 async def _async_handle_lock_entity_change(  # noqa: RUF029
@@ -113,3 +141,11 @@ def _create_removed_lock_entity_issue(
             "entity_id": entity_id,
         },
     )
+
+
+async def _async_update_listener(
+    hass: HomeAssistant,
+    entry: ConfigEntry,
+) -> None:
+    """Handle options update."""
+    await hass.config_entries.async_reload(entry.entry_id)
