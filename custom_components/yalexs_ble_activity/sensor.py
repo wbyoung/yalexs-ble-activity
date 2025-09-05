@@ -95,6 +95,7 @@ class YaleXSBLEOperationSensor(YALEXSBLEEntity, SensorEntity, RestoreEntity):
         self.hass.bus.async_fire(
             "yalexs_ble.activity",
             {
+                "entity_id": self.entity_id,
                 "state": value,
                 "attributes": attributes,
             },
