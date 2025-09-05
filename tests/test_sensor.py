@@ -74,7 +74,7 @@ async def test_sensors(
                 status=DoorStatus.AJAR,
             )
         ],
-        ["invalid-activity-type"],
+        [type("UnsupportedActivity", (object,), {"timestamp": MOCK_UTC_NOW})()],
     ],
     ids=[
         "pin_unlock_then_auto_lock",
