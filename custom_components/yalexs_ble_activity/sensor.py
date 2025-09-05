@@ -93,7 +93,7 @@ class YaleXSBLEOperationSensor(YALEXSBLEEntity, SensorEntity, RestoreEntity):
         _LOGGER.debug("creating event for activity update")
 
         self.hass.bus.async_fire(
-            "yalexs_ble.activity",
+            "yalexs_ble_activity",
             {
                 "entity_id": self.entity_id,
                 "state": value,
