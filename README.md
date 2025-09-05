@@ -92,6 +92,7 @@ This will be triggered for all activity that is received from the lock regardles
 
 #### Event Data
 
+- `entity_id`: The entity ID of the [`sensor.<lock_name>_operation`](#sensorlock_name_operation) with the activity.
 - `state`: The state of the activity which mirrors that of [`sensor.<lock_name>_operation`](#sensorlock_name_operation).
 - `attributes`: The attributes for the activity which mirrors that of the [`sensor.<lock_name>_operation`](#sensorlock_name_operation) attributes.
 
