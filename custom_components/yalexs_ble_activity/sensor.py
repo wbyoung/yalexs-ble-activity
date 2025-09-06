@@ -101,9 +101,7 @@ class YaleXSBLEOperationSensor(YALEXSBLEEntity, SensorEntity, RestoreEntity):
             },
         )
 
-        if self._pending_activity_update:
-            self._record_pending_update()
-
+        self._record_activity(activity)
         self._pending_activity_update = activity
 
         if self._cancel_pending_activity_update:
@@ -115,9 +113,7 @@ class YaleXSBLEOperationSensor(YALEXSBLEEntity, SensorEntity, RestoreEntity):
             self._flush_pending_update,
         )
 
-    def _record_pending_update(self) -> None:
-        activity = self._pending_activity_update
-        assert activity is not None
+    def _record_activity(self, activity: DoorActivity | LockActivity) -> None:
         native_value, attributes = self._extract_values(activity)
         state_changed_data: EventStateChangedData = {
             "entity_id": self.entity_id,
