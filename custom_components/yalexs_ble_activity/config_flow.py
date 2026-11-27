@@ -14,13 +14,13 @@ from homeassistant.config_entries import (
 )
 from homeassistant.core import callback
 from homeassistant.helpers.selector import EntitySelector, EntitySelectorConfig
-import voluptuous as vol
+import probatio
 
 from .const import CONF_LOCK_ENTITIES, DOMAIN
 
-STEP_USER_DATA_SCHEMA = vol.Schema(
+STEP_USER_DATA_SCHEMA = probatio.Schema(
     {
-        vol.Required(
+        probatio.Required(
             CONF_LOCK_ENTITIES,
         ): EntitySelector(
             EntitySelectorConfig(
@@ -33,7 +33,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
 )
 
 
-class YaleXSBLEActivityConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
+class YaleXSBLEActivityConfigFlow(ConfigFlow, domain=DOMAIN):
     """Handle a Yale Access Bluetooth Activity config flow."""
 
     VERSION = 1

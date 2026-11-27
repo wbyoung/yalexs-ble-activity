@@ -23,14 +23,6 @@
             }
         }
     },
-    "exceptions": {
-        "yalexs_ble_patched": {
-            "message": "Restart required to use newly patched `yalexs_ble` package"
-        },
-        "yalexs_ble_no_patch_available": {
-            "message": "No patches for `yalexs_ble=={yalexs_ble_version}`; one must be created"
-        }
-    },
     "issues": {
         "lock_entity_removed": {
             "title": "Lock entity has been removed",

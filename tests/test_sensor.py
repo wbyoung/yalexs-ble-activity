@@ -87,7 +87,7 @@ async def test_sensor_activity_update(
     hass: HomeAssistant,
     config_entry: MockConfigEntry,
     lock: er.RegistryEntry,
-    lock_activities: LockActivity,
+    lock_activities: list[Any],
     now: MockNow,
     entity_registry: er.EntityRegistry,
     snapshot: SnapshotAssertion,
@@ -111,7 +111,7 @@ async def test_sensor_activity_update(
     activity_update = _activity_update_handler(hass, lock)
 
     for lock_activity in lock_activities:
-        activity_update(lock_activity, lock_info=None, connection_info=None)
+        activity_update(lock_activity)
 
     _snapshot("activity-received")
 
@@ -229,10 +229,13 @@ async def test_restore_state(
 
 
 def _activity_update_handler(hass: HomeAssistant, lock: er.RegistryEntry):
+    assert lock.config_entry_id is not None
     core_entry = hass.config_entries.async_get_known_entry(lock.config_entry_id)
+    assert core_entry is not None
     data = core_entry.runtime_data
     register_activity_update_call = data.lock.register_activity_callback.mock_calls[-1]
-    _name, register_activity_update_args, _kwargs = register_activity_update_call
+    _name, register_activity_update_args, kwargs = register_activity_update_call
+    assert kwargs == {}
     (activity_update,) = register_activity_update_args
 
     return activity_update
