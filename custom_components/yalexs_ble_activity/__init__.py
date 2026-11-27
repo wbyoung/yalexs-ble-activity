@@ -3,13 +3,11 @@
 from __future__ import annotations
 
 from functools import partial
-from importlib.metadata import version
 import logging
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import Event, HomeAssistant
-from homeassistant.exceptions import ConfigEntryError
 from homeassistant.helpers import (
     config_validation as cv,
     device_registry as dr,
@@ -17,16 +15,13 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers.event import async_track_entity_registry_updated_event
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
-from homeassistant.util import package as pkg_util
-import yalexs_ble
 
-from .const import CONF_LOCK_ENTITIES, DOMAIN, YALEXSBLE_PATCH_URL
+from .const import CONF_LOCK_ENTITIES, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS: list[Platform] = [Platform.SENSOR]
 CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
-YALEXSBLE_VERSION = version("yalexs-ble")
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
@@ -34,31 +29,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     Returns:
         If the setup was successful.
-
-    Raises:
-        ConfigEntryError: If there is an issue with setup.
     """
     _LOGGER.debug("setup %s with config:%s", entry.title, entry.data)
-
-    if not hasattr(yalexs_ble.PushLock, "register_activity_callback"):
-        _LOGGER.debug("%s no activity callback:%s", entry.title, entry.data)
-
-        def _install_yalexs_ble_patch() -> bool:
-            return bool(
-                pkg_util.install_package(
-                    YALEXSBLE_PATCH_URL.format(version=YALEXSBLE_VERSION)
-                )
-            )
-
-        raise ConfigEntryError(
-            translation_domain=DOMAIN,
-            translation_key="yalexs_ble_patched"
-            if (await hass.async_add_executor_job(_install_yalexs_ble_patch))
-            else "yalexs_ble_no_patch_available",
-            translation_placeholders={
-                "yalexs_ble_version": YALEXSBLE_VERSION,
-            },
-        )
 
     entry.async_on_unload(entry.add_update_listener(_async_update_listener))
     entry.async_on_unload(

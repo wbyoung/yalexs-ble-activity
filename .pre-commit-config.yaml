@@ -49,6 +49,7 @@ repos:
     rev: v1.16.0
     hooks:
       - id: mypy
+        language: system
         args:
           - --pretty
           - --show-error-codes

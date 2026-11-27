@@ -28,7 +28,7 @@ from homeassistant.helpers.restore_state import (
     RestoreEntity,
 )
 from homeassistant.util import dt as dt_util
-from yalexs_ble import ConnectionInfo, DoorActivity, LockActivity, LockInfo
+from yalexs_ble import DoorActivity, LockActivity
 
 from .const import (
     ATTR_REMOTE_TYPE,
@@ -78,13 +78,13 @@ class YaleXSBLEOperationSensor(YALEXSBLEEntity, SensorEntity, RestoreEntity):
         """Initialize the sensor."""
         super().__init__(data)
         self._attr_unique_id = f"{data.lock.address}operation"
+        self._attr_native_value: str | None = None
+        self._attr_extra_state_attributes: dict[str, Any] = {}
 
     @callback
     def _async_activity_update(
         self,
         activity: DoorActivity | LockActivity,
-        lock_info: LockInfo,  # noqa: ARG002
-        connection_info: ConnectionInfo,  # noqa: ARG002
     ) -> None:
         """Handle activity update."""
 
@@ -174,9 +174,7 @@ class YaleXSBLEOperationSensor(YALEXSBLEEntity, SensorEntity, RestoreEntity):
         await super().async_added_to_hass()
 
         self.async_on_remove(
-            self._device.register_activity_callback(
-                self._async_activity_update, request_update=True
-            )
+            self._device.register_activity_callback(self._async_activity_update)
         )
 
         if (

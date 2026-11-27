@@ -12,8 +12,8 @@ Activity history sensor for Yale Access Bluetooth.
 Disclaimers:
 
 - Enabling this integration for a lock will consume activity from the lock. This means that the activity **will not be available** to the Yale mobile app.
-- This installs a [custom patched version](https://github.com/wbyoung/yalexs-ble/branches) of [`yalexs-ble`](https://github.com/Yale-Libs/yalexs-ble).
-- This is an implementation of work done to [integrate activity into Home Assistant Core](https://github.com/home-assistant/core/pull/151436#issuecomment-3243330215).
+- This requires [`yalexs-ble`](https://github.com/Yale-Libs/yalexs-ble) 4.1.2 (native activity callbacks); no patched library is needed.
+- This is an implementation of work done to [integrate activity into Home Assistant Core](https://github.com/home-assistant/core/pull/151436#issuecomment-3243330215), superseded by [Yale-Libs/yalexs-ble#404](https://github.com/Yale-Libs/yalexs-ble/pull/404).
 - The ideas were rejected from HA Core because there is not yet a standard architecture for [recording historic state changes](https://github.com/home-assistant/architecture/discussions/580).
 
 ## Installation

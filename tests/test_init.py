@@ -1,8 +1,5 @@
 """Test component setup."""
 
-from unittest.mock import patch
-
-from homeassistant.config_entries import ConfigEntryState
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import (
     device_registry as dr,
@@ -10,12 +7,10 @@ from homeassistant.helpers import (
     issue_registry as ir,
 )
 from homeassistant.setup import async_setup_component
-import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from syrupy.assertion import SnapshotAssertion
 from syrupy.filters import props
 
-from custom_components.yalexs_ble_activity import YALEXSBLE_VERSION
 from custom_components.yalexs_ble_activity.const import CONF_LOCK_ENTITIES, DOMAIN
 
 from . import setup_integration
@@ -36,6 +31,7 @@ async def test_standard_setup(
     """Test standard setup."""
     await setup_integration(hass, config_entry)
 
+    assert lock.device_id is not None
     device = device_registry.async_get(lock.device_id)
 
     assert device is not None
@@ -49,43 +45,6 @@ async def test_standard_setup(
             "is_new",
         ),
     )
-
-
-@pytest.mark.parametrize(
-    "scenario",
-    [
-        (True, "Restart required to use newly patched `yalexs_ble` package"),
-        (
-            False,
-            f"No patches for `yalexs_ble=={YALEXSBLE_VERSION}`; one must be created",
-        ),
-    ],
-    ids=["successful_install", "failed_install"],
-)
-async def test_patching_yalexs_ble(
-    hass: HomeAssistant,
-    config_entry: MockConfigEntry,
-    scenario: tuple[bool, str],
-    lock: er.RegistryEntry,
-    device_registry: dr.DeviceRegistry,
-    snapshot: SnapshotAssertion,
-    caplog: pytest.LogCaptureFixture,
-) -> None:
-    """Test standard setup."""
-
-    install_success, expected_error = scenario
-
-    with (
-        patch("yalexs_ble.PushLock") as push_lock_class_mock,
-        patch(
-            "homeassistant.util.package.install_package", return_value=install_success
-        ),
-    ):
-        del push_lock_class_mock.register_activity_callback
-
-        await setup_integration(hass, config_entry)
-        assert config_entry.state is ConfigEntryState.SETUP_ERROR
-        assert expected_error in caplog.text
 
 
 async def test_renamed_lock_entity(

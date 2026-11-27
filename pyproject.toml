@@ -1,5 +1,6 @@
 [project]
-requires-python = ">=3.13"
+name = "yalexs-ble-activity"
+requires-python = ">=3.14"
 
 [tool.coverage.run]
 source = [
@@ -166,7 +167,7 @@ split-on-trailing-comma = false
   ]
 
 [tool.mypy]
-python_version = "3.13"
+python_version = "3.14"
 follow_imports = "normal"
 local_partial_types = true
 strict_equality = true
